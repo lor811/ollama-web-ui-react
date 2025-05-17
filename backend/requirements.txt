@@ -1,0 +1,5 @@
+fastapi[standard]
+sqlmodel
+ollama
+python-jose[cryptography]
+passlib[bcrypt]
