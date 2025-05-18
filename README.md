@@ -16,7 +16,7 @@ ollama serve
 ```
 and download at least one model using:
 ```sh
-ollama pull {model_name}
+ollama pull {model}
 ```
 
 For example:
@@ -34,9 +34,8 @@ git clone https://github.com/lor811/ollama-web-ui-react.git
 cd ollama-web-ui-react
 ```
 
-### On macOS
+### 1. On macOS
 
-#### 🧩 Frontend
 **1. Install dependencies**
 ```sh
 cd frontend
@@ -47,8 +46,7 @@ npm install
 npm run build
 ```
 
-#### ⚙️ Backend
-**3. Setup envinronment**
+**3. Setup python envinronment**
 ```sh
 cd ../backend
 python3 -m venv .venv
@@ -63,9 +61,8 @@ uvicorn main:app --host 127.0.0.1 --port 8000
 
 The app should now be available at http://localhost:8000
 
-### On Windows
+### 2. On Windows
 
-#### 🧩 Frontend
 **1. Install dependencies**
 ```powershell
 cd frontend
@@ -76,8 +73,7 @@ npm install
 npm run build
 ```
 
-#### ⚙️ Backend
-**3. Setup envinronment**
+**3. Setup python envinronment**
 ```powershell
 cd ..\backend
 python -m venv .venv
