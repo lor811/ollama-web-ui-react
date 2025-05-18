@@ -1,30 +1,30 @@
-import { Outlet, useNavigate } from 'react-router';
-import { useAuth } from '@providers/AuthProvider';
-import { useEffect } from 'react';
-import LoadingFallback from '@components/suspense/LoadingFallback';
+import { Outlet, useNavigate } from "react-router";
+import { useAuth } from "@providers/AuthProvider";
+import { useEffect } from "react";
+import LoadingFallback from "@components/suspense/LoadingFallback";
 
 const ProtectedRoute = () => {
-    const { isCheckingToken } = useAuth();
+  const { isCheckingToken } = useAuth();
 
-    const navigate = useNavigate();
+  const navigate = useNavigate();
 
-    const hasToken = !!localStorage.getItem('access_token');
+  const hasToken = !!localStorage.getItem("access_token");
 
-    useEffect(() => {
-        if (!hasToken) {
-            navigate("/login");
-        }
-    })
-
-    if (isCheckingToken) {
-        return <LoadingFallback />;
-    }
-
+  useEffect(() => {
     if (!hasToken) {
-        return <div>Unauthorized</div>;
+      navigate("/login");
     }
+  });
 
-    return <Outlet />;
+  if (isCheckingToken) {
+    return <LoadingFallback />;
+  }
+
+  if (!hasToken) {
+    return <div>Unauthorized</div>;
+  }
+
+  return <Outlet />;
 };
 
 export default ProtectedRoute;

@@ -40,6 +40,6 @@ export const authRegister = async (credentials: AuthCredentials) => {
     if (!response.ok) {
         throw new Error((await response.json()).detail);
     }
-  
+
     return response.json();
 }

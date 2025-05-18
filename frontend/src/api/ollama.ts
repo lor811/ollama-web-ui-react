@@ -16,9 +16,9 @@ export const fetchModels = async (access_token: string) => {
 }
 
 export const getStreamingResponse = async (
-    selected_model: string, 
-    user_message: string, 
-    chat_id: string | undefined, 
+    selected_model: string,
+    user_message: string,
+    chat_id: string | undefined,
     token: string
 ) => {
     const response = await fetch(`/api/ollama/chat/${chat_id}`, {
@@ -36,7 +36,7 @@ export const getStreamingResponse = async (
 }
 
 export const processStream = async (
-    streamingResponse: Response, 
+    streamingResponse: Response,
     updateStreamingMessage: (chunk: string) => void,
 ) => {
 
@@ -46,15 +46,15 @@ export const processStream = async (
 
     const reader = streamingResponse.body.getReader();
     const decoder = new TextDecoder();
-    
+
     let generated_message = "";
     while (true) {
         const { done, value } = await reader.read();
-        
+
         if (done) {
             return;
         }
-        
+
         const chunk = decoder.decode(value, { stream: true });
         generated_message += chunk;
         updateStreamingMessage(generated_message);

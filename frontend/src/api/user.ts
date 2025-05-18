@@ -9,7 +9,7 @@ export const getUser = async (access_token: string) => {
     if (!response.ok) {
         throw new Error(`Unauthorized: ${(await response.json()).detail}`);
     }
-    
+
     const data = await response.json();
 
     return {
