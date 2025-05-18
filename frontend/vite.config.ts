@@ -28,7 +28,7 @@ export default defineConfig({
       '@providers': path.resolve(__dirname, './src/providers'),
     },
   },
-    build: {
+  build: {
     rollupOptions: {
       output: {
         manualChunks: {
@@ -38,23 +38,23 @@ export default defineConfig({
             'react-router',
             'react-error-boundary'
           ],
-          
+
           'ui': [
             '@chakra-ui/react',
             'react-icons'
           ],
-          
+
           'markdown': [
             'react-markdown',
             'remark-gfm',
             'rehype-raw',
             'react-syntax-highlighter'
           ],
-          
+
           'data': [
             '@tanstack/react-query'
           ],
-          
+
           'dev-tools': [
             'eslint',
             '@eslint/js',
